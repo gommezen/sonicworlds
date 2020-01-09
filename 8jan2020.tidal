@@ -1,0 +1,32 @@
+
+d1
+$jux (rev)
+$ sound "[bd:3*2, sn:1 ~808:1*4]"
+#room 0.3
+#shape 0.3
+
+d2
+$jux(iter 4)
+$ sound "[super808]"
+#lpf (slow "2 12" $ range 300 1200 sine)
+#lpq (slow "2 12" $ range 0.2 0.5 sine)
+#delay "<0.4 0.8>"
+#delayt 0.4
+#delayfb 0.6
+#coarse "12 24"
+-- #pan sine
+
+d3
+$ every 4 (#crush "2")
+$ off "<e q t e s t>" (|+ n 24)
+$ n (scale "minor"
+$ off "0.5" (|+ "<2 -2 3 5 7 1>") "<4 3 2 1 0 -1>")
+# sound "[xx]"
+|+ n "[c8]"
+-- |* speed "[1,1.02,0,-1]"
+|* speed "[1,1.02]"
+#room 0.4
+#sz 0.95
+#orbit 0
+
+hush
