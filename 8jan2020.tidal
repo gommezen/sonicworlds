@@ -1,32 +1,50 @@
+--daily cycles in Montréal, 8. January 2020 
 
 d1
-$jux (rev)
-$ sound "[bd:3*2, sn:1 ~808:1*4]"
-#room 0.3
-#shape 0.3
+$ jux rev
+$ chunk 4 (fast 2 . (|- n 12))
+$ off 0.25 (|+ 12)
+$ struct (iter 4 "t(5,8)")
+$ n (scale "harmonicMajor" "<0 2 4 6 7>")
+# sound "superpiano"
+# orbit 0
 
 d2
-$jux(iter 4)
-$ sound "[super808]"
-#lpf (slow "2 12" $ range 300 1200 sine)
-#lpq (slow "2 12" $ range 0.2 0.5 sine)
-#delay "<0.4 0.8>"
-#delayt 0.4
-#delayfb 0.6
-#coarse "12 24"
--- #pan sine
+$ sometimes (#crush 2)
+$ jux (iter 4)
+$ chunk 4 (slow 2 . (|- n 9)) $ off 0.25 (|+ 9)
+$ struct (iter 4 "t(5,8)")
+$ n (scale "locrian" "<0 2 1 4 5 6 7>")
+# sound "[super808]"
+# delay "<0.4 0.6>"
+-- #delayt 0.2
+# delayfb 0.6
+# orbit 1
 
 d3
-$ every 4 (#crush "2")
-$ off "<e q t e s t>" (|+ n 24)
-$ n (scale "minor"
-$ off "0.5" (|+ "<2 -2 3 5 7 1>") "<4 3 2 1 0 -1>")
-# sound "[xx]"
-|+ n "[c8]"
--- |* speed "[1,1.02,0,-1]"
-|* speed "[1,1.02]"
+-- $ every 3 (#speed "2")
+-- $ off 0.75 (#sound "[mt:1*2]")
+-- $ jux(iter 4)
+$ sound "[bd:3(5,8), 808:1*4]"
+--|* speed "[-1, 1.95]"
+-- # gain 1.2
+-- # decay 0.2
+-- # orbit 2
+
+d4
+$jux (iter 4)
+$ every 4 (off 0.25 (#sound "kicklinn:1").(#crush 2))
+$ sound "[clubkick*2?, ~808:1*4]"
+|* speed "[1,1.02,2, 0, -1]"
+#shape 0.5
+#gain 0.8
 #room 0.4
 #sz 0.95
-#orbit 0
+#legato 1
+
+d1 silence
+d2 silence
+d3 silence
+d4 silence
 
 hush
