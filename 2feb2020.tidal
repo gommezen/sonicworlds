@@ -1,0 +1,71 @@
+-- Written during the Global Game Jam at TAG Montreal
+-- 31/01-02/02/2020
+
+setcps 1.1
+
+d1 $ slow 4 $n "<0 4 -1 0 2>" #s "superpiano"
+#gain 0.9
+#room 0.8
+#sz 0.96
+
+d1
+$ slow 4 $n "<0 4 -1 0 2>" #s "superhammond"
+#gain 0.9
+#room 0.8
+#sz 0.97
+
+d2 silence
+
+d2 $sound "pulse*4" #n (fast 2 (randcat[0,4,7,11]+ "<12 0 24 48>"))
+
+d2 $sound "juno*4" #n (fast 4 ( randcat [0, 2, 4, 3, 5, 7, 11, 15]+ "<3 0 3 7? 0 11 15 5?>"))
+
+-- d2 $every 4 (iter 4)
+-- $sound "linnhats*4" #n (fast 4 ( randcat [0, 2, 4, 3, 5, 7, 11,15]+ "<3 0 3 7 0 11 15 5>"))
+-- |*speed "<2 4>"
+
+-- d2 $sound "pluck*4" #n (fast 4 (randcat [3, 5, 7, 11]+ "<7 0 9 11>"))
+-- #gain 1.5
+
+d2 silence
+
+d3 $ struct (iter 4 "t(5,8)")
+$ slow 4 $n "<0 4 -1 0 2>" #s "superhat"
+#gain 0.9
+#room 0.8
+#sz 0.97
+
+d3 silence
+
+d4 -- $struct (iter 4 "t(5,8)")
+$slow 4 $n "<0 4 -1 0 2>" #s "supersiren"
+#gain 0.8
+#room 0.8
+#sz 0.97
+
+d4 silence
+
+d5
+$every 6 (slow 0)
+$n"[5 [5 5] 2? 3?]"
+# s "[hh, ~ [tink kick?]]"
+#gain "<1.1 1.6>"
+
+d5 silence
+
+d6
+$ n"[5 [5 5, 5, 2]]"
+# s "[hh, kick]"
+# gain "<1.1 1.6>"
+
+d6 silence
+
+-- d7
+-- $ off 0.75 (#sound "linnhats")
+-- $ n"[6 [10 5, 0, 8]]"
+-- # s "[hh, kick]"
+-- # gain "<1.1 1.6>"
+--
+-- d7 silence
+
+hush
