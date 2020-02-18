@@ -1,0 +1,21 @@
+setcps 1
+
+d1
+$slow 2
+$jux(#speed 2)
+$stack
+[
+stutWith 4 (1/4) ((|* coarse 12)) $ "[juno]*8" #n(run 8) #lpf(range 800 7000 $slow 2 saw)#lpq 0.2 #legato 0.7 #gain 0.8,
+off 0.25 (|+ 7) $ struct (iter 4 "t(5,8)")$jux (iter 4)$ sound "[electro1:6*2, ~ casio*2]" #shape 0.25 #gain 1.1 #legato 1,
+every 4 (|*speed "2")$ sound "[~ ifdrums*8]" #n "4" #gain (range 1.2 1.4 $saw),
+jux(iter 4)$s "808:1*8" #gain "1.5",
+jux (rev)$ every 4 (|+| up 7)$sound "[pulse*8]"#shape (slow 2 $ range 0.25 0.95 $sine)#legato 1 #room 0.2 #gain 1.1,
+n "[~ c4, c3, ~ c5?, c6?]*4" # "superhammond" #lpf (range 800 6000 $slow 2 saw) #lpq 0.25 #legato 0.6
+]
+#room 0.3
+#shape (slow 2 $ range 0.25 0.45 $saw)
+
+xfadeIn 1 6 silence
+
+
+hush
